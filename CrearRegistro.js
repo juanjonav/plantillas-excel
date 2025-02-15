@@ -9,6 +9,9 @@ document.getElementById("btnGenerarExcelHis").addEventListener("click", async ()
     const tabla = document.getElementById("tablaPacientesBody");
     const filas = tabla.querySelectorAll("tr");
     const totalFilas = filas.length;
+
+
+
   // ========================
     for (let i = 0; i < Math.min(totalFilas, 25); i++) {
       const fila = filas[i];
@@ -17,10 +20,20 @@ document.getElementById("btnGenerarExcelHis").addEventListener("click", async ()
   
       const diagnosticos = datos[15].split(",").map(d => d.trim());
       const codigos = datos[16].split(",").map(c => c.trim());
+
+      const fecha = datos[17] ? datos[17].split("-").map(d => d.trim()) : ["", "", ""]; 
       
+
+
       const baseRow = 13 + (i * 5);
       hoja.getCell(`E${baseRow}`).value = datos[0];  // Nombre
       hoja.getCell(`B${baseRow + 1}`).value = datos[1];  // Día
+
+      hoja.getCell(`W${baseRow}`).value = fecha[2] || ""; // Día
+      hoja.getCell(`X${baseRow}`).value = fecha[1] || ""; // Mes
+      hoja.getCell(`Y${baseRow}`).value = fecha[0] || ""; // Año
+
+
       hoja.getCell(`C${baseRow + 1}`).value = datos[2];  // DNI
       hoja.getCell(`C${baseRow + 3}`).value = datos[3];  // Historia clínica
       hoja.getCell(`D${baseRow + 1}`).value = datos[4];  // Financiamiento

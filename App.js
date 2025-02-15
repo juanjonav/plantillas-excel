@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const diagnostico3 = document.getElementById("diagnostico3").value || "";
     const cie3 = document.getElementById("cie3").value || "";
 
+
+    const fecha = document.getElementById("fecha").value; 
+    const sis = document.getElementById("sis").value;
     // Separar los diagnósticos y códigos CIE con comas
     const diagnosticos = [diagnostico1, diagnostico2, diagnostico3]
       .filter((diagnostico) => diagnostico !== "")
@@ -62,6 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
       <td>${hemoglobina || ""}</td>
       <td>${diagnosticos || ""}</td>
       <td>${codigosCIE || ""}</td>
+      <td>${fecha || ""}</td>
+      <td>${sis || ""}</td>
       
       <td>
         <button class="btn btn-sm btn-danger btnEliminar">Eliminar</button>
@@ -83,3 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Asignar evento al botón de agregar paciente
   btnAgregarPaciente.addEventListener("click", manejarAgregarPaciente);
 });
+
+window.onbeforeunload = function () {
+  const tabla = document.getElementById("tablaPacientesBody");
+  if (tabla && tabla.rows.length > 0) {
+      return "Tienes datos sin guardar. ¿Seguro que quieres salir?";
+  }
+};
