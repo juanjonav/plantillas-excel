@@ -24,7 +24,7 @@ document.getElementById("btnGenerarExcelTabla").addEventListener("click", async 
             
             hoja.getCell(`A${baseRow}`).value = datos[1];  // Día
             hoja.getCell(`B${baseRow}`).value = datos[2];  // DNI
-            hoja.getCell(`C${baseRow}`).value = datos[3];  // Historia clínica
+            //hoja.getCell(`C${baseRow}`).value = datos[3];  // Historia clínica
             hoja.getCell(`D${baseRow}`).value = fechanacimiento || "";  // Fecha
             hoja.getCell(`E${baseRow}`).value = datos[0];  // Nombre
             // Marcar con "X" en la columna correspondiente al sexo
@@ -36,6 +36,7 @@ document.getElementById("btnGenerarExcelTabla").addEventListener("click", async 
 
             hoja.getCell(`H${baseRow}`).value = datos[18] || "";  // SIS
             hoja.getCell(`Y${baseRow}`).value = datos[16] || "";  // Diagnósticos
+            hoja.getCell(`Z${baseRow}`).value = datos[3];//numero de consulta
             
         }
 
