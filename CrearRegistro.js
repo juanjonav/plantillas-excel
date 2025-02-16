@@ -35,7 +35,8 @@ document.getElementById("btnGenerarExcelHis").addEventListener("click", async ()
 
 
       hoja.getCell(`C${baseRow + 1}`).value = datos[2];  // DNI
-      hoja.getCell(`C${baseRow + 3}`).value = datos[3];  // Historia clínica
+     // hoja.getCell(`C${baseRow + 3}`).value = datos[3];  // Historia clínica
+     
       hoja.getCell(`D${baseRow + 1}`).value = datos[4];  // Financiamiento
       hoja.getCell(`D${baseRow + 3}`).value = datos[5];  // Etnia
       hoja.getCell(`E${baseRow + 1}`).value = datos[6];  // Distrito
