@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const dia = document.getElementById("dia").value;
     const dni = document.getElementById("dni").value;
-    const historiaClinica = document.getElementById("historiaClinica").value;
+    //const historiaClinica = document.getElementById("historiaClinica").value;
+    const numeroCita = document.getElementById("numeroCita").value;
     const financiadorSalud = document.getElementById("financiadorSalud").value;
     const etnia = document.getElementById("etnia").value;
     const distrito = document.getElementById("Distrito").value;
@@ -46,12 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Crear una nueva fila en la tabla
     const nuevaFila = document.createElement("tr");
-
+//<td>${historiaClinica || ""}</td>
     nuevaFila.innerHTML = `
       <td>${nombresApellidos || ""}</td>
       <td>${dia || ""}</td>
       <td>${dni || ""}</td>
-      <td>${historiaClinica || ""}</td>
+      <td>${numeroCita || ""}</td>
       <td>${financiadorSalud || ""}</td>
       <td>${etnia || ""}</td>
       <td>${distrito || ""}</td>
